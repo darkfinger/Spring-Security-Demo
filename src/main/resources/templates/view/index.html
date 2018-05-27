@@ -1,8 +1,11 @@
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Spring security demo</title>
 </head>
 <body>
 <h1>Spring Security Demo</h1>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="logout"/>
+</form>
 </body>
 </html>

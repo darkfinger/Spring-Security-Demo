@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+</head>
+<body>
+<form action="${pageContext.request.contextPath}/loginProcess" th:action="@{/loginProcess}" method="POST">
+    <div th:if="${param.error !=null}">
+        <span STYLE="color: red;">Error: Invalid username or password</span>
+    </div>
+    <label for="username">User name</label><input type="text" id="username" name="username"/>
+    <label for="password">Password</label><input type="password" id="password" name="password"/>
+    <input type="submit" value="Log in"/>
+</form>
+
+</body>
+</html>
