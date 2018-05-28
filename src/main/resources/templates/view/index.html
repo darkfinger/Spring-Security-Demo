@@ -1,9 +1,13 @@
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Spring security demo</title>
 </head>
 <body>
 <h1>Spring Security Demo</h1>
+<div>
+    Logged user: <span sec:authentication="name">Bob</span>
+    Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+</div>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="logout"/>
 </form>

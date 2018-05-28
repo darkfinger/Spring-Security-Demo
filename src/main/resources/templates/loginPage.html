@@ -6,8 +6,11 @@
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/loginProcess" th:action="@{/loginProcess}" method="POST">
-    <div th:if="${param.error !=null}">
+    <div th:if="${param.error}!=null">
         <span STYLE="color: red;">Error: Invalid username or password</span>
+    </div>
+    <div th:if="${param.logout} !=null">
+        <span STYLE="color: red;">logout success</span>
     </div>
     <label for="username">User name</label><input type="text" id="username" name="username"/>
     <label for="password">Password</label><input type="password" id="password" name="password"/>
