@@ -24,5 +24,9 @@ public class HomeController {
     public String common(){
         return "common-space";
     }
+    @GetMapping("/denied/")
+    public String denied(){
+        return "denied";
+    }
 }
 
