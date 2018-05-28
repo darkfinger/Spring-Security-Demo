@@ -8,6 +8,15 @@
     Logged user: <span sec:authentication="name">Bob</span>
     Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
 </div>
+<div>
+    <a href="" th:href="@{/admin/}">admin space</a>
+</div>
+<div>
+    <a href="" th:href="@{/manager/}">manager space</a>
+</div>
+<div>
+    <a href="" th:href="@{/common/}">common space</a>
+</div>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="logout"/>
 </form>
