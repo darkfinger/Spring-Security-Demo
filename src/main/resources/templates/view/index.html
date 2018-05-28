@@ -8,13 +8,13 @@
     Logged user: <span sec:authentication="name">Bob</span>
     Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
 </div>
-<div>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
     <a href="" th:href="@{/admin/}">admin space</a>
 </div>
-<div>
+<div sec:authorize="hasRole('ROLE_MAN')">
     <a href="" th:href="@{/manager/}">manager space</a>
 </div>
-<div>
+<div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')') or #authorization.expression('hasRole(''ROLE_MAN'')')}">
     <a href="" th:href="@{/common/}">common space</a>
 </div>
 <form th:action="@{/logout}" method="post">
