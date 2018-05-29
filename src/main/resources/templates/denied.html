@@ -7,5 +7,9 @@
 <div>
     <span sec:authentication="name">Bob</span> has not authorization to see this info
 </div>
+<div>
+    Logged user: <span sec:authentication="name">Bob</span>
+    Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+</div>
 </body>
 </html>
