@@ -1,5 +1,8 @@
 package com.dkkcorp.sprinnboot.springsecuritydemo.controller;
 
+import com.dkkcorp.sprinnboot.springsecuritydemo.service.RoleService;
+import com.dkkcorp.sprinnboot.springsecuritydemo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +13,7 @@ public class HomeController {
 
     @RequestMapping({"/","","index"})
     public String index(Model model){
+
         return "view/index";
     }
     @GetMapping("/manager/")
@@ -28,5 +32,6 @@ public class HomeController {
     public String denied(){
         return "denied";
     }
+
 }
 
