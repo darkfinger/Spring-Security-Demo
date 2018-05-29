@@ -1,6 +1,7 @@
 package com.dkkcorp.sprinnboot.springsecuritydemo.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,6 +22,12 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @Value("${spring.queries.users-query}")
+    private String usersQuery;
+
+    @Value("${spring.queries.roles-query}")
+    private String rolesQuery;
+
     public DemoSecurityConfig(DataSource dataSource){
         this.dataSource=dataSource;
     }
@@ -32,8 +39,8 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.
                 jdbcAuthentication()
-                .usersByUsernameQuery("select username, password, enable from user where username=?")
-                .authoritiesByUsernameQuery("select u.username, r.role from user u inner join user_role ur on(u.id=ur.user_id) inner join role r on(ur.role_id=r.id) where u.username=?\n")
+                .usersByUsernameQuery(usersQuery)
+                .authoritiesByUsernameQuery(rolesQuery)
                 .dataSource(dataSource)
                 .passwordEncoder(bCryptPasswordEncoder);
 

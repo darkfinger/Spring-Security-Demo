@@ -28,9 +28,9 @@ public class LoginController {
 
 
     public void init(){
-        Role admin= new Role("ADMIN");
-        Role empo= new Role("EMPO");
-        Role man= new Role("MAN");
+        Role admin= new Role("ROLE_ADMIN");
+        Role empo= new Role("ROLE_EMPO");
+        Role man= new Role("ROLE_MAN");
 
         User user=new User("dav","123");
         user.getRole().add(admin);
